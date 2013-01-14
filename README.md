@@ -6,6 +6,9 @@ The Adcloud Public Api Documentation serves as a starting point for developers w
 This documentation is constantly updated so please check back for the latest information.
 
 
+[View the documentation](http://dev.adcloud.com/public-api-doc/ "View the documentation")
+
+
 Getting Started
 ---------------
 
