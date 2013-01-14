@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li><a href='../apidoc.html'>Adcloud - Public Api</a><span class='divider'>/</span></li>
+  <li class='active'>Campaigns</li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Campaigns<br>
+    <small>A campaign is a collection of ad-media and settings that define how a product will be displayed to users on subscribing websites.</small>
+  </h1>
+</div>
+
+  <div><p>A campaign is a collection of ad-media and settings that define how a product will be displayed to users on subscribing websites. 
+In most cases, a campaign will have an expiry date. 
+A campaign is setup to have only one product. However, a product can be related to any number of campaigns.</p>
+</div>
+
+  <h2>Supported Formats</h2>
+  json
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/campaigns/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET https://api.adcloud.com/v2/campaigns
+          </a><br>
+          <small>List campaigns</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      <p>Get a list of Campaigns</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+POST https://api.adcloud.com/v2/campaigns/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;: {
+       &quot;type&quot;: &quot;Array&lt;Campaign&gt;&quot;,
+       &quot;page&quot;: 1,
+       &quot;size&quot;: 1,
+       &quot;per_page&quot;: 50,
+       &quot;total_count&quot;: 1,
+       &quot;total_pages&quot;: 1,
+       &quot;sort&quot;: {},
+       &quot;uuid&quot;: &quot;fc57d3f3a7ee35389138cdaf02aaddaf&quot;
+   },
+   &quot;items&quot;: [{
+       &quot;id&quot;: 1,
+       &quot;bidding_enabled&quot;: 0,
+       &quot;name&quot;: &quot;AdCloud Basic Campaign&quot;,
+       &quot;customer_id&quot;: 0,
+       &quot;company_id&quot;: 1,
+       &quot;company_name&quot;: &quot;Adcloud GmbH&quot;,
+       &quot;product_id&quot;: 1234,
+       &quot;product_name&quot;: &quot;AdCloud Basic Product&quot;,
+       &quot;status&quot;: 10,
+       &quot;language_id&quot;: 1,
+       &quot;start_date&quot;: &quot;2012-05-15&quot;,
+       &quot;end_date&quot;: &quot;2012-08-16&quot;,
+       &quot;delivery_boost&quot;: 1.0,
+       &quot;frequency_capping&quot;: 0,
+       &quot;frequency_capping_days&quot;: 0,
+       &quot;cookie_lifetime&quot;: 30,
+       &quot;cookie_lifetime_view&quot;: 4,
+       &quot;fallback&quot;: false,
+       &quot;keywords&quot;: null,
+       &quot;exclusion_keywords&quot;: null,
+       &quot;keyword_lifetime&quot;: 0,
+       &quot;comment&quot;: null,
+       &quot;budget_limit&quot;: 5510.5,
+       &quot;unit_price_maximum&quot;: 1.07,
+       &quot;locations&quot;: null,
+       &quot;type&quot;: 2,
+       &quot;delivery_external&quot;: 1,
+       &quot;delivery_internal&quot;: 1,
+       &quot;delivery_type&quot;: 0,
+       &quot;deactivated_on&quot;: null,
+       &quot;modified&quot;: &quot;2012-06-14T07:47:15Z&quot;,
+       &quot;created&quot;: &quot;2012-05-13T13:18:12Z&quot;,
+       &quot;_meta&quot;: {
+           &quot;type&quot;: &quot;Campaign&quot;
+       }
+  }, {}, {}, {}
+}</pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/campaigns/show.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-show'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET https://api.adcloud.com/v2/campaigns/:id
+          </a><br>
+          <small>Show a campaign</small>
+        </h2>
+    </div>
+
+
+    <div id='description-show' class='collapse accordion-body'>
+      <p>To get the details of a Campaign simply perform a GET action to the url specified and provide the id of the Campaign you wish to view.</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+GET https://api.adcloud.com/v2/campaigns/1/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;id&quot;: 1,
+   &quot;bidding_enabled&quot;: 0,
+   &quot;name&quot;: &quot;AdCloud Basic Campaign&quot;,
+   &quot;customer_id&quot;: 0,
+   &quot;company_id&quot;: 1,
+   &quot;company_name&quot;: &quot;Adcloud GmbH&quot;,
+   &quot;product_id&quot;: 1234,
+   &quot;product_name&quot;: &quot;AdCloud Basic Product&quot;,
+   &quot;status&quot;: 10,
+   &quot;language_id&quot;: 1,
+   &quot;start_date&quot;: &quot;2012-05-15&quot;,
+   &quot;end_date&quot;: &quot;2012-08-16&quot;,
+   &quot;delivery_boost&quot;: 1.0,
+   &quot;frequency_capping&quot;: 0,
+   &quot;frequency_capping_days&quot;: 0,
+   &quot;cookie_lifetime&quot;: 30,
+   &quot;cookie_lifetime_view&quot;: 4,
+   &quot;fallback&quot;: false,
+   &quot;keywords&quot;: null,
+   &quot;exclusion_keywords&quot;: null,
+   &quot;keyword_lifetime&quot;: 0,
+   &quot;comment&quot;: null,
+   &quot;budget_limit&quot;: 5510.5,
+   &quot;unit_price_maximum&quot;: 1.07,
+   &quot;locations&quot;: null,
+   &quot;type&quot;: 2,
+   &quot;delivery_external&quot;: 1,
+   &quot;delivery_internal&quot;: 1,
+   &quot;delivery_type&quot;: 0,
+   &quot;deactivated_on&quot;: null,
+   &quot;modified&quot;: &quot;2012-06-14T07:47:15Z&quot;,
+   &quot;created&quot;: &quot;2012-05-13T13:18:12Z&quot;,
+   &quot;_meta&quot;:{
+       &quot;type&quot;:&quot;Campaign&quot;
+   }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Campaign to be shown</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/campaigns/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST https://api.adcloud.com/v2/campaigns
+          </a><br>
+          <small>Create a campaign</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      <p>In order to create a new Campaign, a number of parameters are required.</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+POST #{Apipie.configuration.api_base_url}/v2/campaigns/?access_token={ACCESS_TOKEN}
+json
+{
+   &quot;id&quot;: 2,
+   &quot;bidding_enabled&quot;: 0,
+   &quot;name&quot;: &quot;AdCloud Basic Campaign&quot;,
+   &quot;customer_id&quot;: 0,
+   &quot;company_id&quot;: 1,
+   &quot;company_name&quot;: &quot;Adcloud GmbH&quot;,
+   &quot;product_id&quot;: 1234,
+   &quot;product_name&quot;: &quot;AdCloud Basic Product&quot;,
+   &quot;status&quot;: 10,
+   &quot;language_id&quot;: 1,
+   &quot;start_date&quot;: &quot;2012-05-15&quot;,
+   &quot;end_date&quot;: &quot;2012-08-16&quot;,
+   &quot;delivery_boost&quot;: 1.0,
+   &quot;frequency_capping&quot;: 0,
+   &quot;frequency_capping_days&quot;: 0,
+   &quot;cookie_lifetime&quot;: 30,
+   &quot;cookie_lifetime_view&quot;: 4,
+   &quot;fallback&quot;: false,
+   &quot;keywords&quot;: null,
+   &quot;exclusion_keywords&quot;: null,
+   &quot;keyword_lifetime&quot;: 0,
+   &quot;comment&quot;: null,
+   &quot;budget_limit&quot;: 5510.5,
+   &quot;unit_price_maximum&quot;: 1.07,
+   &quot;locations&quot;: null,
+   &quot;type&quot;: 2,
+   &quot;delivery_external&quot;: 1,
+   &quot;delivery_internal&quot;: 1,
+   &quot;delivery_type&quot;: 0,
+   &quot;deactivated_on&quot;: null,
+   &quot;modified&quot;: &quot;2012-06-14T07:47:15Z&quot;,
+   &quot;created&quot;: &quot;2012-05-13T13:18:12Z&quot;,
+   &quot;_meta&quot;:{
+       &quot;type&quot;:&quot;Campaign&quot;,
+       &quot;message&quot;:&quot;created&quot;,
+       &quot;status&quot;:201,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}
+</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;:{
+       &quot;message&quot;:&quot;updated&quot;,
+       &quot;status&quot;:200,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>bidding_enabled </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Allow bidding to take place on this Campaign</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>name </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The name of the campaign should be unique and self explanatory</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>customer_id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The id of the Customer that owns this campaign, important for reports and for identifying a Campaign.</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>product_id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Relates the Campaign to the specific product (e.g. xyz company car rental), important for reports and for identifying a Campaign</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>language_id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Determines which Placements the Campaign will run on. If the language is set to German, for instance, it should not run on English-language placements.</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>start_date </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Determine the lifetime of the campaign.</p>
+
+      <small>
+        <b>value:</b> Must be Date
+          <br/><b>format:</b> yyyy-mm-dd
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>budget_limit </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Determines the total budget and therefore the unit limit of the campaign. The number of clicks effected is dependent on the relevant click-price. It indicates how much in total should be expended for the respective campaign</p>
+
+      <small>
+        <b>value:</b> Must be Float
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>unit_price_maximum </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The price field is related to the type of billing model and shows the price per unit.</p>
+
+      <small>
+        <b>value:</b> Must be Float
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>type </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Determines the billing model of the campaign. [CPC, CPM, CPX, CPX+]</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1,2,3,4
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>delivery_external </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>delivery_internal </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>delivery_type </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Determines whether the Campaign is supposed to run on its own placement only, the marketplace, or both. The specific delivery destination is determined by the topic selection or by the &quot;My AdPlacements&quot; section.</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>end_date </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The date on which the Campaign should stop running</p>
+
+      <small>
+        <b>value:</b> Must be Date
+          <br/><b>format:</b> yyyy-mm-dd
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>locations </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>fallback </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Should this Campaign make use of Fallback Ads?</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Keywords to associate this Campaign with</p>
+
+      <small>
+        <b>value:</b> Must be String
+          <br/><b>format:</b> keyword,seperated,by,a,comma
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>frequency_capping </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Should this campaign be Frequency Capped?</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>frequency_capping_days </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of days to apply Frequency Capping for</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>cookie_lifetime </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of seconds the Cookie should exist for</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>cookie_lifetime_view </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>delivery_boost </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Should delivery boost be applied?</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>status </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>This allows you to monitor the status of your campaign and to modify it where necessary</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>exclusion_keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>A set of words that you do not want this Campaign associated with</p>
+
+      <small>
+        <b>value:</b> Must be String
+          <br/><b>format:</b> keyword,seperated,by,a,comma
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>keyword_lifetime </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The number of seconds the keywords should be applied for</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/campaigns/update.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-update'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT https://api.adcloud.com/v2/campaigns/:id
+          </a><br>
+          <small>Update a campaign</small>
+        </h2>
+    </div>
+
+
+    <div id='description-update' class='collapse accordion-body'>
+      <p>If you wish to update a number of a Campaigns settings you would use this method</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+PUT https://api.adcloud.com/v2/campaigns/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;:{
+       &quot;message&quot;:&quot;updated&quot;,
+       &quot;status&quot;:200,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Campaign to be shown</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/campaigns/request_approval.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-request_approval'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT https://api.adcloud.com/v2/campaigns/:id/request_approval
+          </a><br>
+          <small>Set the Campaign Status to Request Approval</small>
+        </h2>
+    </div>
+
+
+    <div id='description-request_approval' class='collapse accordion-body'>
+      <p>If you wanted to get approval for an existing Campaign, you would set the Campaign status to &quot;Request Approval&quot;:#{Sisyphus::CampaignStatus::STATES[:awaiting_approval]}.</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+PUT https://api.adcloud.com/v2/campaigns/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;:{
+       &quot;message&quot;:&quot;status updated&quot;,
+       &quot;status&quot;:200,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Campaign to be shown</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/campaigns/end.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-end'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT https://api.adcloud.com/v2/campaigns/:id/end
+          </a><br>
+          <small>Set the Campaign Status to Ended</small>
+        </h2>
+    </div>
+
+
+    <div id='description-end' class='collapse accordion-body'>
+      <p>If you wanted to end a Campaigns run, you would set the Campaign status to &quot;End&quot;:#{Sisyphus::CampaignStatus::STATES[:ended]}.</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+PUT https://api.adcloud.com/v2/campaigns/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;:{
+       &quot;message&quot;:&quot;status updated&quot;,
+       &quot;status&quot;:200,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Campaign to be shown</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/campaigns/offer.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-offer'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT https://api.adcloud.com/v2/campaigns/:id/offer
+          </a><br>
+          <small>Set the Campaign Status to Offer</small>
+        </h2>
+    </div>
+
+
+    <div id='description-offer' class='collapse accordion-body'>
+      <p>If you wanted to initiate an Offer for a Campaign you would set the Campaign status to &quot;Offer&quot;:#{Sisyphus::CampaignStatus::STATES[:offer]}.</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+PUT https://api.adcloud.com/v2/campaigns/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;:{
+       &quot;message&quot;:&quot;status updated&quot;,
+       &quot;status&quot;:200,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Campaign to be shown</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Adcloud GmbH
+</footer>
+  </div>
+  <script type='text/javascript' src='../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

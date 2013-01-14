@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li><a href='../apidoc.html'>Adcloud - Public Api</a><span class='divider'>/</span></li>
+  <li class='active'>Advertisements</li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Advertisements<br>
+    <small>Ads are the primary representation of what the end-user sees. They are normal Image-Text but can be of other types too</small>
+  </h1>
+</div>
+
+
+  <h2>Supported Formats</h2>
+  json
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/advertisements/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET https://api.adcloud.com/v2/advertisements
+          </a><br>
+          <small>List advertisements</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      <p>Get a list of Advertisements</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+GET https://api.adcloud.com/v2/advertisements/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;:{
+      &quot;type&quot;:&quot;Array&lt;Advertisement&gt;&quot;,
+      &quot;page&quot;:1,
+      &quot;size&quot;:1,
+      &quot;per_page&quot;:50,
+      &quot;total_count&quot;:1,
+      &quot;total_pages&quot;:1,
+      &quot;sort&quot;:{
+
+      },
+      &quot;uuid&quot;:&quot;3d6adfe65b629d44a9a13fa3e048fa16&quot;
+   },
+   &quot;items&quot;:[
+      {
+         &quot;postview_type&quot;:1,
+         &quot;id&quot;:1,
+         &quot;product_id&quot;:1,
+         &quot;type&quot;:0,
+         &quot;name&quot;:&quot;AdCloud Basic Ad&quot;,
+         &quot;logo&quot;:false,
+         &quot;image_text&quot;:true,
+         &quot;flash&quot;:false,
+         &quot;display&quot;:false,
+         &quot;tag&quot;:false,
+         &quot;tag_html&quot;:&quot;&quot;,
+         &quot;target_url&quot;:&quot;http://example.org/&quot;,
+         &quot;postview_url&quot;:&quot;&quot;,
+         &quot;keywords&quot;:null,
+         &quot;exclusion_keywords&quot;:null,
+         &quot;machine_keywords&quot;:null,
+         &quot;locations&quot;:null,
+         &quot;modified&quot;:&quot;2010-09-13T14:59:21Z&quot;,
+         &quot;created&quot;:&quot;2009-02-12T07:31:33Z&quot;,
+         &quot;text_link&quot;:&quot;Book Ads now!&quot;,
+         &quot;text_headline&quot;:&quot;Super Ads&quot;,
+         &quot;text_body&quot;:&quot;AdCloud is an awesome company&quot;,
+         &quot;image_alt&quot;:&quot;&quot;,
+         &quot;advertisement_design_id&quot;:0
+      }
+   ]
+}</pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/advertisements/show.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-show'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET https://api.adcloud.com/v2/advertisements/:id
+          </a><br>
+          <small>Show a single advertisement</small>
+        </h2>
+    </div>
+
+
+    <div id='description-show' class='collapse accordion-body'>
+      <p>Get a single Advertisement</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+GET https://api.adcloud.com/v2/advertisements/:id/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;id&quot;:1,
+   &quot;product_id&quot;:1,
+   &quot;type&quot;:0,
+   &quot;advertisement_design_id&quot;:0,
+   &quot;media_files&quot;:[
+      {
+         &quot;id&quot;:1,
+         &quot;uploaded_file&quot;:null,
+         &quot;product_id&quot;:1,
+         &quot;parent_id&quot;:0,
+         &quot;type&quot;:&quot;product_image&quot;,
+         &quot;logo&quot;:false,
+         &quot;flash&quot;:false,
+         &quot;display&quot;:false,
+         &quot;storage_filename&quot;:&quot;http://example.org/c75b2180f44a6b6bf1cb26e17c82e17f.jpg&quot;,
+         &quot;original_filename&quot;:&quot;some_ad.jpg&quot;,
+         &quot;mime_type&quot;:&quot;image/jpeg&quot;,
+         &quot;file_size&quot;:18977,
+         &quot;dimensions&quot;:&quot;80x80&quot;,
+         &quot;aspect_ratio&quot;:&quot;1:1&quot;,
+         &quot;created&quot;:&quot;2008-08-13T13:22:39Z&quot;,
+         &quot;modified&quot;:&quot;2009-03-18T07:42:23Z&quot;,
+         &quot;ad_id&quot;:1,
+         &quot;company_id&quot;:null,
+         &quot;_meta&quot;:{
+            &quot;type&quot;:&quot;MediaFile&quot;
+         }
+      }
+   ],
+   &quot;target_url&quot;:&quot;http://example.org&quot;,
+   &quot;name&quot;:&quot;AdCloud Basic Ad&quot;,
+   &quot;logo&quot;:false,
+   &quot;image_text&quot;:true,
+   &quot;flash&quot;:false,
+   &quot;display&quot;:false,
+   &quot;tag&quot;:false,
+   &quot;postview_type&quot;:1,
+   &quot;tag_html&quot;:&quot;&quot;,
+   &quot;image_alt&quot;:&quot;&quot;,
+   &quot;text_headline&quot;:&quot;Super Ads&quot;,
+   &quot;text_body&quot;:&quot;AdCloud is an awesome company&quot;,
+   &quot;text_link&quot;:&quot;Book Ads now!&quot;,
+   &quot;postview_url&quot;:&quot;&quot;,
+   &quot;keywords&quot;:null,
+   &quot;exclusion_keywords&quot;:null,
+   &quot;machine_keywords&quot;:null,
+   &quot;locations&quot;:null,
+   &quot;modified&quot;:&quot;2010-09-13T14:59:21Z&quot;,
+   &quot;created&quot;:&quot;2009-02-12T07:31:33Z&quot;,
+   &quot;_meta&quot;:{
+      &quot;type&quot;:&quot;Advertisement&quot;,
+      &quot;uuid&quot;:&quot;e9f5027cc7af5ce915ab571c8e082a96&quot;
+   }
+}</pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/advertisements/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST https://api.adcloud.com/v2/advertisements
+          </a><br>
+          <small>Create a new advertisement</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      <p>Create a new Advertisement</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+POST https://api.adcloud.com/v2/advertisements/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;id&quot;:2,
+   &quot;product_id&quot;:2,
+   &quot;type&quot;:1,
+   &quot;advertisement_design_id&quot;:1,
+   &quot;target_url&quot;:&quot;http://example.org&quot;,
+   &quot;name&quot;:&quot;AdCloud Basic Ad&quot;,
+   &quot;logo&quot;:false,
+   &quot;image_text&quot;:true,
+   &quot;flash&quot;:false,
+   &quot;display&quot;:true,
+   &quot;tag&quot;:true,
+   &quot;postview_type&quot;:1,
+   &quot;tag_html&quot;:&quot;haml&quot;,
+   &quot;image_alt&quot;:&quot;bar&quot;,
+   &quot;text_headline&quot;:&quot;Super Ads&quot;,
+   &quot;text_body&quot;:&quot;AdCloud is an awesome company&quot;,
+   &quot;text_link&quot;:&quot;linklink&quot;,
+   &quot;postview_url&quot;:&quot;http://example.org&quot;,
+   &quot;keywords&quot;:null,
+   &quot;exclusion_keywords&quot;:null,
+   &quot;machine_keywords&quot;:null,
+   &quot;locations&quot;:null,
+   &quot;modified&quot;:&quot;2012-08-29T13:26:06Z&quot;,
+   &quot;created&quot;:&quot;2012-08-29T13:26:06Z&quot;,
+   &quot;_meta&quot;:{
+      &quot;type&quot;:&quot;Advertisement&quot;,
+      &quot;message&quot;:&quot;created&quot;,
+      &quot;status&quot;:201,
+      &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>product_id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the product that is associated with this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>name </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The name by which this Advertisement will be known</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>type </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Type of Advertisement to create: Ad:0, Click Tag:1</p>
+
+      <small>
+        <b>value:</b> Must be String
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>image_alt </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The &quot;Alt&quot; text to use for the Image (if present) for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>text_headline </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Headline that will be displayed for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>text_body </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The primary body text that will be used for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>text_link </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Text that will be displayed in the postview_url link on the Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>tag_html </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Custom HTML/Script for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>postview_url </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The postview URL can be enhanced by the variable [TIMESTAMP]</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>advertisement_design_id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Ad Design to be used for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>logo </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Does this Advertisement make use of a Company Logo</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>image_text </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Should be 1 if the ad contains image and text data and 0 if not</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>flash </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Does this Advertisement use AdobeFlash instead of an Image?</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>display </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Should be 1 if this Advertisement is just an Image. I.e. no text and not flash</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>tag </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>If this Advertisement contains a custom script or html tag, this value should be &quot;1&quot;. An example would be an ad wich is hosted by google adwords.</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>postview_type </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Define if a custom tracking pixel should be loaded and of which type 0:none, 1:image, 2:iframe</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1,2
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>A list of keywords to associate this Advertisement with</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>exclusion_keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>A list of keywords used to ensure that this Advertisement is not associated with</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>machine_keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Keywords used for mobile advertising</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>locations </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>A set of Geographic Location names to display this Advertisement in</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/advertisements/update.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-update'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT https://api.adcloud.com/v2/advertisements/:id
+          </a><br>
+          <small>Update an advertisement</small>
+        </h2>
+    </div>
+
+
+    <div id='description-update' class='collapse accordion-body'>
+      
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+PUT https://api.adcloud.com/v2/advertisements/:id/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response:
+json
+{
+   &quot;_meta&quot;:{
+       &quot;message&quot;:&quot;updated&quot;,
+       &quot;status&quot;:200,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+  }
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id the Advertisement to update</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>product_id </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the product that is associated with this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>name </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The name by which this Advertisement will be known</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>type </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Type of Advertisement to create: Ad:0, Click Tag:1</p>
+
+      <small>
+        <b>value:</b> Must be String
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>image_alt </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The &quot;Alt&quot; text to use for the Image (if present) for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>text_headline </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Headline that will be displayed for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>text_body </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The primary body text that will be used for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>text_link </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Text that will be displayed in the postview_url link on the Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>tag_html </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Custom HTML/Script for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>postview_url </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The postview URL can be enhanced by the variable [TIMESTAMP]</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>advertisement_design_id </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Ad Design to be used for this Advertisement</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>logo </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Does this Advertisement make use of a Company Logo</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>image_text </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Should be 1 if the ad contains image and text data and 0 if not</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>flash </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Does this Advertisement use AdobeFlash instead of an Image?</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>display </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Should be 1 if this Advertisement is just an Image. I.e. no text and not flash</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>tag </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>If this Advertisement contains a custom script or html tag, this value should be &quot;1&quot;. An example would be an ad wich is hosted by google adwords.</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>postview_type </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Define if a custom tracking pixel should be loaded and of which type 0:none, 1:image, 2:iframe</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+          <br/><b>one of:</b> 0,1,2
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>A list of keywords to associate this Advertisement with</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>exclusion_keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>A list of keywords used to ensure that this Advertisement is not associated with</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>machine_keywords </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>Keywords used for mobile advertising</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>locations </strong><br>
+      <small>
+        <em>optional</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>A set of Geographic Location names to display this Advertisement in</p>
+
+      <small>
+        <b>value:</b> Must be String
+      </small>
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/advertisements/destroy.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-destroy'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            DELETE https://api.adcloud.com/v2/advertisements/:id
+          </a><br>
+          <small>Destroy an advertisement</small>
+        </h2>
+    </div>
+
+
+    <div id='description-destroy' class='collapse accordion-body'>
+      <p>Delete an Advertisement</p>
+
+
+        <h3>Supported Formats</h3>
+        json
+
+
+      
+      <h3>Examples</h3>
+          <pre class="prettyprint">Request: 
+DELETE https://api.adcloud.com/v2/advertisements/:id/?access_token={ACCESS_TOKEN}</pre>
+          <pre class="prettyprint">Response: Coming Soon</pre>
+
+    </div>
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Adcloud GmbH
+</footer>
+  </div>
+  <script type='text/javascript' src='../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

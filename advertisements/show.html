@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../apidoc.html'>Adcloud - Public Api</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../../apidoc/advertisements.html'>Advertisements</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>show</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      GET https://api.adcloud.com/v2/advertisements/:id<br>
+      <small>Show a single advertisement</small>
+    </h1>
+  </div>
+
+<div>
+
+  <p>Get a single Advertisement</p>
+
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">Request: 
+GET https://api.adcloud.com/v2/advertisements/:id/?access_token={ACCESS_TOKEN}</pre>
+      <pre class="prettyprint">Response:
+json
+{
+   &quot;id&quot;:1,
+   &quot;product_id&quot;:1,
+   &quot;type&quot;:0,
+   &quot;advertisement_design_id&quot;:0,
+   &quot;media_files&quot;:[
+      {
+         &quot;id&quot;:1,
+         &quot;uploaded_file&quot;:null,
+         &quot;product_id&quot;:1,
+         &quot;parent_id&quot;:0,
+         &quot;type&quot;:&quot;product_image&quot;,
+         &quot;logo&quot;:false,
+         &quot;flash&quot;:false,
+         &quot;display&quot;:false,
+         &quot;storage_filename&quot;:&quot;http://example.org/c75b2180f44a6b6bf1cb26e17c82e17f.jpg&quot;,
+         &quot;original_filename&quot;:&quot;some_ad.jpg&quot;,
+         &quot;mime_type&quot;:&quot;image/jpeg&quot;,
+         &quot;file_size&quot;:18977,
+         &quot;dimensions&quot;:&quot;80x80&quot;,
+         &quot;aspect_ratio&quot;:&quot;1:1&quot;,
+         &quot;created&quot;:&quot;2008-08-13T13:22:39Z&quot;,
+         &quot;modified&quot;:&quot;2009-03-18T07:42:23Z&quot;,
+         &quot;ad_id&quot;:1,
+         &quot;company_id&quot;:null,
+         &quot;_meta&quot;:{
+            &quot;type&quot;:&quot;MediaFile&quot;
+         }
+      }
+   ],
+   &quot;target_url&quot;:&quot;http://example.org&quot;,
+   &quot;name&quot;:&quot;AdCloud Basic Ad&quot;,
+   &quot;logo&quot;:false,
+   &quot;image_text&quot;:true,
+   &quot;flash&quot;:false,
+   &quot;display&quot;:false,
+   &quot;tag&quot;:false,
+   &quot;postview_type&quot;:1,
+   &quot;tag_html&quot;:&quot;&quot;,
+   &quot;image_alt&quot;:&quot;&quot;,
+   &quot;text_headline&quot;:&quot;Super Ads&quot;,
+   &quot;text_body&quot;:&quot;AdCloud is an awesome company&quot;,
+   &quot;text_link&quot;:&quot;Book Ads now!&quot;,
+   &quot;postview_url&quot;:&quot;&quot;,
+   &quot;keywords&quot;:null,
+   &quot;exclusion_keywords&quot;:null,
+   &quot;machine_keywords&quot;:null,
+   &quot;locations&quot;:null,
+   &quot;modified&quot;:&quot;2010-09-13T14:59:21Z&quot;,
+   &quot;created&quot;:&quot;2009-02-12T07:31:33Z&quot;,
+   &quot;_meta&quot;:{
+      &quot;type&quot;:&quot;Advertisement&quot;,
+      &quot;uuid&quot;:&quot;e9f5027cc7af5ce915ab571c8e082a96&quot;
+   }
+}</pre>
+
+    <h2>Supported Formats</h2>
+    json
+
+
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Adcloud GmbH
+</footer>
+  </div>
+  <script type='text/javascript' src='../../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../apidoc.html'>Adcloud - Public Api</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../../apidoc/campaigns.html'>Campaigns</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>show</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      GET https://api.adcloud.com/v2/campaigns/:id<br>
+      <small>Show a campaign</small>
+    </h1>
+  </div>
+
+<div>
+
+  <p>To get the details of a Campaign simply perform a GET action to the url specified and provide the id of the Campaign you wish to view.</p>
+
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">Request: 
+GET https://api.adcloud.com/v2/campaigns/1/?access_token={ACCESS_TOKEN}</pre>
+      <pre class="prettyprint">Response:
+json
+{
+   &quot;id&quot;: 1,
+   &quot;bidding_enabled&quot;: 0,
+   &quot;name&quot;: &quot;AdCloud Basic Campaign&quot;,
+   &quot;customer_id&quot;: 0,
+   &quot;company_id&quot;: 1,
+   &quot;company_name&quot;: &quot;Adcloud GmbH&quot;,
+   &quot;product_id&quot;: 1234,
+   &quot;product_name&quot;: &quot;AdCloud Basic Product&quot;,
+   &quot;status&quot;: 10,
+   &quot;language_id&quot;: 1,
+   &quot;start_date&quot;: &quot;2012-05-15&quot;,
+   &quot;end_date&quot;: &quot;2012-08-16&quot;,
+   &quot;delivery_boost&quot;: 1.0,
+   &quot;frequency_capping&quot;: 0,
+   &quot;frequency_capping_days&quot;: 0,
+   &quot;cookie_lifetime&quot;: 30,
+   &quot;cookie_lifetime_view&quot;: 4,
+   &quot;fallback&quot;: false,
+   &quot;keywords&quot;: null,
+   &quot;exclusion_keywords&quot;: null,
+   &quot;keyword_lifetime&quot;: 0,
+   &quot;comment&quot;: null,
+   &quot;budget_limit&quot;: 5510.5,
+   &quot;unit_price_maximum&quot;: 1.07,
+   &quot;locations&quot;: null,
+   &quot;type&quot;: 2,
+   &quot;delivery_external&quot;: 1,
+   &quot;delivery_internal&quot;: 1,
+   &quot;delivery_type&quot;: 0,
+   &quot;deactivated_on&quot;: null,
+   &quot;modified&quot;: &quot;2012-06-14T07:47:15Z&quot;,
+   &quot;created&quot;: &quot;2012-05-13T13:18:12Z&quot;,
+   &quot;_meta&quot;:{
+       &quot;type&quot;:&quot;Campaign&quot;
+   }
+}</pre>
+
+    <h2>Supported Formats</h2>
+    json
+
+
+    <h2>Params</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Param name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id </strong><br>
+      <small>
+        <em>*required</em>
+        
+      </small>
+    </td>
+    <td>
+      <p>The Id of the Campaign to be shown</p>
+
+      <small>
+        <b>value:</b> Must be Integer
+      </small>
+    </td>
+  </tr>
+
+  
+
+      </tbody>
+    </table>
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Adcloud GmbH
+</footer>
+  </div>
+  <script type='text/javascript' src='../../apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

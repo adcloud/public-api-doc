@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li class='active'><a href='./apidoc.html'>Adcloud - Public Api</a></li>
+</ul>
+
+<div><p>Enter some information about the adcloud api here</p>
+</div>
+
+<h1 class='page-header'>Resources</h1>
+
+  <h2>
+    <a href='./apidoc/advertisements.html'>Advertisements</a><br>
+    <small>Ads are the primary representation of what the end-user sees. They are normal Image-Text but can be of other types too</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/advertisements/index.html'>GET https://api.adcloud.com/v2/advertisements</a></td>
+            <td width='60%'>List advertisements</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/advertisements/show.html'>GET https://api.adcloud.com/v2/advertisements/:id</a></td>
+            <td width='60%'>Show a single advertisement</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/advertisements/create.html'>POST https://api.adcloud.com/v2/advertisements</a></td>
+            <td width='60%'>Create a new advertisement</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/advertisements/update.html'>PUT https://api.adcloud.com/v2/advertisements/:id</a></td>
+            <td width='60%'>Update an advertisement</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/advertisements/destroy.html'>DELETE https://api.adcloud.com/v2/advertisements/:id</a></td>
+            <td width='60%'>Destroy an advertisement</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/campaigns.html'>Campaigns</a><br>
+    <small>A campaign is a collection of ad-media and settings that define how a product will be displayed to users on subscribing websites.</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/campaigns/index.html'>GET https://api.adcloud.com/v2/campaigns</a></td>
+            <td width='60%'>List campaigns</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/campaigns/show.html'>GET https://api.adcloud.com/v2/campaigns/:id</a></td>
+            <td width='60%'>Show a campaign</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/campaigns/create.html'>POST https://api.adcloud.com/v2/campaigns</a></td>
+            <td width='60%'>Create a campaign</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/campaigns/update.html'>PUT https://api.adcloud.com/v2/campaigns/:id</a></td>
+            <td width='60%'>Update a campaign</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/campaigns/request_approval.html'>PUT https://api.adcloud.com/v2/campaigns/:id/request_approval</a></td>
+            <td width='60%'>Set the Campaign Status to Request Approval</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/campaigns/end.html'>PUT https://api.adcloud.com/v2/campaigns/:id/end</a></td>
+            <td width='60%'>Set the Campaign Status to Ended</td>
+          </tr>
+          <tr>
+            <td><a href='./apidoc/campaigns/offer.html'>PUT https://api.adcloud.com/v2/campaigns/:id/offer</a></td>
+            <td width='60%'>Set the Campaign Status to Offer</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/oauth.html'>Oauth Requests</a><br>
+    <small>In order to gain access to the adcloud public api you must have request an access_token via 2 step Oauth.</small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><a href='./apidoc/oauth/access_token.html'>POST https://api.adcloud.com/v1/oauth/access_token</a></td>
+            <td width='60%'></td>
+          </tr>
+    </tbody>
+  </table>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer>  &copy; 2013 Adcloud GmbH
+</footer>
+  </div>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/apipie.js'></script>
+</body>
+</html>
