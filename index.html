@@ -3,10 +3,10 @@
 <head>
   <title>API documentation</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link type='text/css' rel='stylesheet' href='./stylesheets/bundled/bootstrap.min.css'/>
-<link type='text/css' rel='stylesheet' href='./stylesheets/bundled/prettify.css'/>
-<link type='text/css' rel='stylesheet' href='./stylesheets/bundled/bootstrap-responsive.min.css'/>
-  <link type='text/css' rel='stylesheet' href='./stylesheets/application.css'/>
+  <link type='text/css' rel='stylesheet' href='/public-api-doc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='/public-api-doc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='/public-api-doc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='/public-api-doc/stylesheets/application.css'/>
   <!-- IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,16 +17,229 @@
     <div class="row">
       <div id='container'>
         <ul class='breadcrumb'>
-  <li class='active'><a href='/public-api-doc'>Adcloud - Public Api</a></li>
+  <li class='active'><a href='/public-api-doc.html'>Adcloud - Public Api</a></li>
 </ul>
 
-<div><p>Enter some information about the adcloud api here</p>
+<div><h1>Campaign Creation Workflow</h1>
+
+<p>This paragraph describes the workflow for creating campaigns via the public Adcloud API.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Valid company/cloud @ adcloud.net</li>
+<li>OAuth access to the cloud (id and secret)</li>
+<li>Knowledge or library to retrieve the OAuth access_token via the public API</li>
+</ul>
+
+<h2>Note</h2>
+
+<p>If you are using ruby, you can use the official adcloud gem. It&#39;s a small wrapper for all available features. You just have to set your OAuth id and secret and you are ready to go. Please check <a href="https://github.com/adcloud/api-client-ruby">https://github.com/adcloud/api-client-ruby</a></p>
+
+<h2>Workflow</h2>
+
+<h3>1. Create a customer</h3>
+
+<p>Within a cloud, every campaign belongs to a unique customer. Each customer has a unique id which needs to be set when submitting the campaign details. You can create a new customer by issuing a POST request with the customers unique name as form parameter to</p>
+
+<p><code>curl -X POST https://api.adcloud.com/v2/customers?access_token={ACCESS_TOKEN}</code></p>
+
+<p>Required parameters:</p>
+
+<ul>
+<li>customer[name] String Unique customer name</li>
+</ul>
+
+<p>The response should be something similar to:</p>
+
+<pre><code>{
+  &quot;id&quot;:2,
+  &quot;name&quot;:&quot;Acme Inc&quot;,
+  &quot;modified&quot;:&quot;2012-09-07T14:00:00Z&quot;,
+  &quot;created&quot;:&quot;2012-09-07T14:00:00Z&quot;,
+  &quot;_meta&quot;:{
+    &quot;type&quot;:&quot;Customer&quot;,
+    &quot;message&quot;:&quot;created&quot;,
+    &quot;status&quot;:201,
+    &quot;uuid&quot;:&quot;aad4c26424e133616b47b2f837fe8b18&quot;
+  }
+}
+</code></pre>
+
+<h3>2. Create the product</h3>
+
+<p>In order to create a new product, submit</p>
+
+<p><code>curl -X POST https://api.adcloud.com/v2/products?access_token={ACCESS_TOKEN}</code></p>
+
+<p>Required parameters:</p>
+
+<ul>
+<li>product[customer_id] Integer customer id</li>
+<li>product[name] String Unique product name (uniqueness is checked with customer scope)</li>
+</ul>
+
+<p>The response would be something similar to:</p>
+
+<pre><code>{
+   &quot;id&quot;:2770,
+   &quot;name&quot;:&quot;My awesome Product&quot;,
+   &quot;customer_id&quot;:2,
+   &quot;default_prio&quot;:0,
+   &quot;modified&quot;:&quot;2012-09-07T15:00:00Z&quot;,
+   &quot;created&quot;:&quot;2012-09-07T15:00:00Z&quot;,
+   &quot;_meta&quot;:{
+      &quot;type&quot;:&quot;Product&quot;,
+      &quot;message&quot;:&quot;created&quot;,
+      &quot;status&quot;:201,
+      &quot;uuid&quot;:&quot;dd5127d97bba9a6c9a762e186ae1a1fc&quot;
+   }
+}
+</code></pre>
+
+<h3>3. Create the campaign</h3>
+
+<p><code>curl -X POST https://api.adcloud.com/v2/campaigns?access_token={ACCESS_TOKEN}</code></p>
+
+<p>Required parameters:</p>
+
+<ul>
+<li>campaign[bidding_enabled] Integer</li>
+<li>campaign[name]</li>
+<li>campaign[customer_id] Integer</li>
+<li>campaign[product_id] Integer</li>
+<li>campaign[language_id] Integer</li>
+<li>campaign[start_date] String(yyyy-mm-dd)</li>
+<li>campaign[budget_limit] Float</li>
+<li>campaign[unit<em>price</em>maximum] Float</li>
+<li>campaign[type] Integer</li>
+<li>campaign[delivery_external] Integer</li>
+<li>campaign[delivery_internal] Integer</li>
+<li>campaign[delivery_type] Integer</li>
+</ul>
+
+<p>Optional parameters:</p>
+
+<ul>
+<li>campaign[end_date] String(yyyy-mm-dd)</li>
+<li>campaign[locations] String</li>
+<li>campaign[fallback] Integer</li>
+<li>campaign[keywords] String</li>
+<li>campaign[frequency_capping]</li>
+<li>campaign[frequency<em>capping</em>days]</li>
+<li>campaign[cookie_lifetime]</li>
+<li>campaign[cookie<em>lifetime</em>view]</li>
+<li>campaign[delivery_boost]</li>
+<li>campaign[status]</li>
+<li>campaign[exclusion_keywords]</li>
+<li>campaign[keyword_lifetime]</li>
+</ul>
+
+<p>Response:</p>
+
+<pre><code>{
+   &quot;id&quot;: 2,
+   &quot;bidding_enabled&quot;: 0,
+   &quot;name&quot;: &quot;AdCloud Basic Campaign&quot;,
+   &quot;customer_id&quot;: 0,
+   &quot;company_id&quot;: 1,
+   &quot;company_name&quot;: &quot;Adcloud GmbH&quot;,
+   &quot;product_id&quot;: 1234,
+   &quot;product_name&quot;: &quot;AdCloud Basic Product&quot;,
+   &quot;status&quot;: 10,
+   &quot;language_id&quot;: 1,
+   &quot;start_date&quot;: &quot;2012-05-15&quot;,
+   &quot;end_date&quot;: &quot;2012-08-16&quot;,
+   &quot;delivery_boost&quot;: 1.0,
+   &quot;frequency_capping&quot;: 0,
+   &quot;frequency_capping_days&quot;: 0,
+   &quot;cookie_lifetime&quot;: 30,
+   &quot;cookie_lifetime_view&quot;: 4,
+   &quot;fallback&quot;: false,
+   &quot;keywords&quot;: null,
+   &quot;exclusion_keywords&quot;: null,
+   &quot;keyword_lifetime&quot;: 0,
+   &quot;comment&quot;: null,
+   &quot;budget_limit&quot;: 5510.5,
+   &quot;unit_price_maximum&quot;: 1.07,
+   &quot;locations&quot;: null,
+   &quot;type&quot;: 2,
+   &quot;delivery_external&quot;: 1,
+   &quot;delivery_internal&quot;: 1,
+   &quot;delivery_type&quot;: 0,
+   &quot;deactivated_on&quot;: null,
+   &quot;modified&quot;: &quot;2012-06-14T07:47:15Z&quot;,
+   &quot;created&quot;: &quot;2012-05-13T13:18:12Z&quot;,
+   &quot;_meta&quot;:{
+       &quot;type&quot;:&quot;Campaign&quot;,
+       &quot;message&quot;:&quot;created&quot;,
+       &quot;status&quot;:201,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}
+</code></pre>
+
+<h3>4. Create advertisements</h3>
+
+<p><code>curl -X POST https://api.adcloud.com/v2/advertisements?access_token={ACCESS_TOKEN}</code></p>
+
+<p>Required parameters:</p>
+
+<ul>
+<li>coming soon</li>
+</ul>
+
+<p>Optional parameters:</p>
+
+<ul>
+<li>coming soon</li>
+</ul>
+
+<h3>5. Upload media files for advertisements</h3>
+
+<p>The api will auto scale various versions of an uploaded image if it matches one of the default image ratios. Images which do not match any of those ratios and files which cannot be auto-processed will be treated as custom files and are kept as well.</p>
+
+<p>The file upload is actually a file fetch request. The service expects an accessible url to file which should be uploaded. It fetches the file and post-processes it after successful retrieval.</p>
+
+<p><code>curl -X POST https://api.adcloud.com/v2/media_files?access_token={ACCESS_TOKEN}</code></p>
+
+<p>Required parameters:</p>
+
+<ul>
+<li>media<em>file[uploaded</em>file] String URL from where to fetch the file</li>
+<li>media<em>file[product</em>id] Integer Reference to a product</li>
+<li>media<em>file[ad</em>id] Integer Reference to an advertisements</li>
+</ul>
+
+<p>Optional Parameters:</p>
+
+<ul>
+<li>media_file[flash] Integer Wether the upload is flash or not</li>
+<li>media_file[display] Integer Should be upload be treated as display ad</li>
+</ul>
+
+<h3>6. Request approval for the campaign</h3>
+
+<p>This last step is optional. If you send a request_approval request, the cloud management team will receive an email that a new campaign is waiting for approval and might confirm or reject it. Therefore, only perform this last step if you really want this campaign to go online!</p>
+
+<p><code>curl -X PUT https://api.adcloud.com/v2/campaigns/{CAMPAIGN_ID}/offer?access_token={ACCESS_TOKEN}</code></p>
+
+<p>Response:</p>
+
+<pre><code>{
+   &quot;_meta&quot;:{
+       &quot;message&quot;:&quot;status updated&quot;,
+       &quot;status&quot;:200,
+       &quot;uuid&quot;:&quot;93cb6d2fea6538894eac6ffc6e6c85ee&quot;
+   }
+}
+</code></pre>
 </div>
 
 <h1 class='page-header'>Resources</h1>
 
   <h2>
-    <a href='./advertisements.html'>Advertisements</a><br>
+    <a href='/public-api-doc/advertisements.html'>Advertisements</a><br>
     <small>Ads are the primary representation of what the end-user sees. They are normal Image-Text but can be of other types too</small>
   </h2>
   <table class='table'>
@@ -38,29 +251,29 @@
     </thead>
     <tbody>
           <tr>
-            <td><a href='./advertisements/index.html'>GET https://api.adcloud.com/v2/advertisements</a></td>
+            <td><a href='/public-api-doc/advertisements/index.html'>GET https://api.adcloud.com/v2/advertisements</a></td>
             <td width='60%'>List advertisements</td>
           </tr>
           <tr>
-            <td><a href='./advertisements/show.html'>GET https://api.adcloud.com/v2/advertisements/:id</a></td>
+            <td><a href='/public-api-doc/advertisements/show.html'>GET https://api.adcloud.com/v2/advertisements/:id</a></td>
             <td width='60%'>Show a single advertisement</td>
           </tr>
           <tr>
-            <td><a href='./advertisements/create.html'>POST https://api.adcloud.com/v2/advertisements</a></td>
+            <td><a href='/public-api-doc/advertisements/create.html'>POST https://api.adcloud.com/v2/advertisements</a></td>
             <td width='60%'>Create a new advertisement</td>
           </tr>
           <tr>
-            <td><a href='./advertisements/update.html'>PUT https://api.adcloud.com/v2/advertisements/:id</a></td>
+            <td><a href='/public-api-doc/advertisements/update.html'>PUT https://api.adcloud.com/v2/advertisements/:id</a></td>
             <td width='60%'>Update an advertisement</td>
           </tr>
           <tr>
-            <td><a href='./advertisements/destroy.html'>DELETE https://api.adcloud.com/v2/advertisements/:id</a></td>
+            <td><a href='/public-api-doc/advertisements/destroy.html'>DELETE https://api.adcloud.com/v2/advertisements/:id</a></td>
             <td width='60%'>Destroy an advertisement</td>
           </tr>
     </tbody>
   </table>
   <h2>
-    <a href='./campaigns.html'>Campaigns</a><br>
+    <a href='/public-api-doc/campaigns.html'>Campaigns</a><br>
     <small>A campaign is a collection of ad-media and settings that define how a product will be displayed to users on subscribing websites.</small>
   </h2>
   <table class='table'>
@@ -72,37 +285,37 @@
     </thead>
     <tbody>
           <tr>
-            <td><a href='./campaigns/index.html'>GET https://api.adcloud.com/v2/campaigns</a></td>
+            <td><a href='/public-api-doc/campaigns/index.html'>GET https://api.adcloud.com/v2/campaigns</a></td>
             <td width='60%'>List campaigns</td>
           </tr>
           <tr>
-            <td><a href='./campaigns/show.html'>GET https://api.adcloud.com/v2/campaigns/:id</a></td>
+            <td><a href='/public-api-doc/campaigns/show.html'>GET https://api.adcloud.com/v2/campaigns/:id</a></td>
             <td width='60%'>Show a campaign</td>
           </tr>
           <tr>
-            <td><a href='./campaigns/create.html'>POST https://api.adcloud.com/v2/campaigns</a></td>
+            <td><a href='/public-api-doc/campaigns/create.html'>POST https://api.adcloud.com/v2/campaigns</a></td>
             <td width='60%'>Create a campaign</td>
           </tr>
           <tr>
-            <td><a href='./campaigns/update.html'>PUT https://api.adcloud.com/v2/campaigns/:id</a></td>
+            <td><a href='/public-api-doc/campaigns/update.html'>PUT https://api.adcloud.com/v2/campaigns/:id</a></td>
             <td width='60%'>Update a campaign</td>
           </tr>
           <tr>
-            <td><a href='./campaigns/request_approval.html'>PUT https://api.adcloud.com/v2/campaigns/:id/request_approval</a></td>
+            <td><a href='/public-api-doc/campaigns/request_approval.html'>PUT https://api.adcloud.com/v2/campaigns/:id/request_approval</a></td>
             <td width='60%'>Set the Campaign Status to Request Approval</td>
           </tr>
           <tr>
-            <td><a href='./campaigns/end.html'>PUT https://api.adcloud.com/v2/campaigns/:id/end</a></td>
+            <td><a href='/public-api-doc/campaigns/end.html'>PUT https://api.adcloud.com/v2/campaigns/:id/end</a></td>
             <td width='60%'>Set the Campaign Status to Ended</td>
           </tr>
           <tr>
-            <td><a href='./campaigns/offer.html'>PUT https://api.adcloud.com/v2/campaigns/:id/offer</a></td>
+            <td><a href='/public-api-doc/campaigns/offer.html'>PUT https://api.adcloud.com/v2/campaigns/:id/offer</a></td>
             <td width='60%'>Set the Campaign Status to Offer</td>
           </tr>
     </tbody>
   </table>
   <h2>
-    <a href='./oauth.html'>Oauth Requests</a><br>
+    <a href='/public-api-doc/oauth.html'>Oauth Requests</a><br>
     <small>In order to gain access to the adcloud public api you must have request an access_token via 2 step Oauth.</small>
   </h2>
   <table class='table'>
@@ -114,7 +327,7 @@
     </thead>
     <tbody>
           <tr>
-            <td><a href='./oauth/access_token.html'>POST https://api.adcloud.com/v1/oauth/access_token</a></td>
+            <td><a href='/public-api-doc/oauth/access_token.html'>POST https://api.adcloud.com/v1/oauth/access_token</a></td>
             <td width='60%'></td>
           </tr>
     </tbody>
@@ -128,9 +341,9 @@
     <footer>  &copy; 2013 Adcloud GmbH
 </footer>
   </div>
-  <script type='text/javascript' src='./javascripts/bundled/jquery-1.7.2.js'></script>
-<script type='text/javascript' src='./javascripts/bundled/bootstrap-collapse.js'></script>
-<script type='text/javascript' src='./javascripts/bundled/prettify.js'></script>
-<script type='text/javascript' src='./javascripts/apipie.js'></script>
+  <script type='text/javascript' src='./public-api-doc/javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='./public-api-doc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='./public-api-doc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='./public-api-doc/javascripts/apipie.js'></script>
 </body>
 </html>
